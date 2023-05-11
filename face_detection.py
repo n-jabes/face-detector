@@ -1,9 +1,9 @@
 import cv2
 import os
 
-def detect_and_save_faces(folder):
-    if not os.path.exists(folder):
-        os.makedirs(folder)
+def detect_and_save_faces(storage):
+    if not os.path.exists(storage):
+        os.makedirs(storage)
     
     cap = cv2.VideoCapture(0)
 
@@ -21,7 +21,7 @@ def detect_and_save_faces(folder):
 
             face = frame[y:y+h, x:x+w]
 
-            filename = os.path.join(folder, f'face_{len(os.listdir(folder))}.jpg')
+            filename = os.path.join(storage, f'face_{len(os.listdir(storage))}.jpg')
 
             cv2.imwrite(filename, face)
 
